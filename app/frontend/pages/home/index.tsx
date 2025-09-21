@@ -1,6 +1,7 @@
+
 import { Head, Link, usePage } from "@inertiajs/react"
 
-import AppLogoIcon from "@/components/app-logo-icon"
+import { Button } from "@/components/ui/button"
 import { dashboardPath, signInPath } from "@/routes"
 import type { SharedData } from "@/types"
 
@@ -18,107 +19,71 @@ export default function Welcome() {
         />
       </Head>
 
-      <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
-        <header className="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl">
-          <nav className="flex items-center justify-end gap-4">
+      <div className="min-h-screen bg-gradient-to-br from-[#f8fafc] to-[#e0e7ef] dark:from-[#0a0a0a] dark:to-[#23272f] flex flex-col">
+        <header className="w-full px-4 py-6 flex justify-between items-center max-w-5xl mx-auto">
+          <span className="font-bold text-xl tracking-tight text-primary">devops quest</span>
+          <nav className="flex items-center gap-4">
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
             {auth.user ? (
-              <Link
-                href={dashboardPath()}
-                className="inline-block rounded-sm border border-[#19140035] px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] dark:hover:border-[#62605b]"
-              >
-                Dashboard
-              </Link>
+              <Button asChild variant="outline">
+                <Link href={dashboardPath()}>Dashboard</Link>
+              </Button>
             ) : (
-              <>
-                <Link
-                  href={signInPath()}
-                  className="inline-block rounded-sm border border-transparent px-5 py-1.5 text-sm leading-normal text-[#1b1b18] hover:border-[#19140035] dark:text-[#EDEDEC] dark:hover:border-[#3E3E3A]"
-                >
-                  Log in
-                </Link>
-              </>
+              <Button asChild variant="ghost">
+                <Link href={signInPath()}>Log in</Link>
+              </Button>
             )}
           </nav>
         </header>
 
-        <div className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0">
-          <main className="flex w-full max-w-[335px] flex-col-reverse lg:max-w-4xl lg:flex-row">
-            <div className="flex-1 rounded-br-lg rounded-bl-lg bg-white p-6 pb-12 text-[13px] leading-[20px] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] lg:rounded-tl-lg lg:rounded-br-none lg:p-20 dark:bg-[#161615] dark:text-[#EDEDEC] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]">
-              <h1 className="mb-1 font-medium">React Starter Kit</h1>
-              <p className="mb-2 text-[#706f6c] dark:text-[#A1A09A]">
-                Rails + Inertia.js + React + shadcn/ui
-                <br />
-                Here are some resources to begin:
-              </p>
-
-              <ul className="mb-4 flex flex-col lg:mb-6">
-                {[
-                  {
-                    text: "Inertia Rails Docs",
-                    href: "https://inertia-rails.dev",
-                  },
-                  {
-                    text: "shadcn/ui Components",
-                    href: "https://ui.shadcn.com",
-                  },
-                  {
-                    text: "React Docs",
-                    href: "https://react.dev",
-                  },
-                  {
-                    text: "Rails Guides",
-                    href: "https://guides.rubyonrails.org",
-                  },
-                ].map((resource, index) => (
-                  <ResourceItem key={index} {...resource} />
-                ))}
-              </ul>
-
-              <ul className="flex gap-3 text-sm leading-normal">
-                <li>
-                  <a
-                    href="https://inertia-rails.dev"
-                    target="_blank"
-                    className="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white"
-                    rel="noreferrer"
-                  >
-                    Learn More
-                  </a>
-                </li>
-              </ul>
+        <main className="flex-1 flex flex-col items-center justify-center px-4">
+          <section className="w-full max-w-3xl text-center py-16">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 via-indigo-500 to-teal-400 bg-clip-text text-transparent">
+              Devops Quest
+            </h1>
+            <p className="mt-4 text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto">
+              A blog and portfolio documenting my quest to learn DevOps skills.
+              I share the guides, projects, and resources that help me master the art of modern software delivery.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg">
+                <Link href={auth.user ? dashboardPath() : signInPath()}>
+                  {auth.user ? "Go to Dashboard" : "Get Started"}
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href="https://github.com/your-github" target="_blank" rel="noopener noreferrer">
+                  View Portfolio
+                </Link>
+              </Button>
             </div>
+          </section>
 
-            <div className="relative -mb-px aspect-[335/376] w-full shrink-0 overflow-hidden rounded-t-lg bg-[#D30001] p-10 text-white lg:mb-0 lg:-ml-px lg:aspect-auto lg:w-[438px] lg:rounded-t-none lg:rounded-r-lg">
-              <AppLogoIcon className="h-full w-full" />
+          <section className="w-full max-w-4xl grid md:grid-cols-3 gap-8 mt-8">
+            <div className="rounded-xl bg-white/80 dark:bg-[#18181b] shadow p-6 flex flex-col items-center">
+              <span className="text-3xl mb-2">📚</span>
+              <h2 className="font-semibold text-lg mb-1">DevOps Resources</h2>
+              <p className="text-sm text-muted-foreground">Step-by-step guides, tutorials, and best practices for CI/CD, cloud, automation, and more.</p>
             </div>
-          </main>
-        </div>
+            <div className="rounded-xl bg-white/80 dark:bg-[#18181b] shadow p-6 flex flex-col items-center">
+              <span className="text-3xl mb-2">🛠️</span>
+              <h2 className="font-semibold text-lg mb-1">Projects & Portfolio</h2>
+              <p className="text-sm text-muted-foreground">DevOps projects, tools, and contributions. Build your professional presence.</p>
+            </div>
+            <div className="rounded-xl bg-white/80 dark:bg-[#18181b] shadow p-6 flex flex-col items-center">
+              <span className="text-3xl mb-2">🤝</span>
+              <h2 className="font-semibold text-lg mb-1">Community</h2>
+              <p className="text-sm text-muted-foreground">Connect with other learners, share knowledge, and grow together in your DevOps journey.</p>
+            </div>
+          </section>
+        </main>
+
+        <footer className="w-full py-6 text-center text-xs text-muted-foreground mt-8">
+          &copy; {new Date().getFullYear()} DevOps Quest. Built by <span className="text-blue-600">sixlighthouses</span>.
+        </footer>
       </div>
     </>
-  )
-}
-
-function ResourceItem({ text, href }: { text: string; href: string }) {
-  return (
-    <li className="relative flex items-center gap-4 py-2">
-      <span className="flex h-3.5 w-3.5 items-center justify-center rounded-full border border-[#e3e3e0] bg-[#FDFDFC] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] dark:border-[#3E3E3A] dark:bg-[#161615]">
-        <span className="h-1.5 w-1.5 rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A]" />
-      </span>
-      <a
-        href={href}
-        target="_blank"
-        className="inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
-        rel="noreferrer"
-      >
-        <span>{text}</span>
-        <svg width={10} height={11} viewBox="0 0 10 11" className="h-2.5 w-2.5">
-          <path
-            d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-            stroke="currentColor"
-            strokeLinecap="square"
-          />
-        </svg>
-      </a>
-    </li>
   )
 }

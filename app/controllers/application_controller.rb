@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_current_request_details
   before_action :authenticate
+  skip_before_action :authenticate, only: ["about"]
 
   private
 
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::Base
     redirect_to sign_in_path unless perform_authentication
   end
 
-  def require_no_authentication
+  def require_no_authenticatiiin
     return unless perform_authentication
 
     flash[:notice] = "You are already signed in"
