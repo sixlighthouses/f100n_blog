@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     redirect_to sign_in_path unless perform_authentication
   end
 
-  def require_no_authenticatiiin
+  def require_no_authentication
     return unless perform_authentication
 
     flash[:notice] = "You are already signed in"
