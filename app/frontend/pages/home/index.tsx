@@ -2,7 +2,7 @@
 import { Head, Link, usePage } from "@inertiajs/react"
 
 import { Button } from "@/components/ui/button"
-import { dashboardPath, signInPath } from "@/routes"
+import { blogsPath, dashboardPath, signInPath } from "@/routes"
 import type { SharedData } from "@/types"
 
 export default function Welcome() {
@@ -49,13 +49,13 @@ export default function Welcome() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={auth.user ? dashboardPath() : signInPath()}>
-                  {auth.user ? "Go to Dashboard" : "Get Started"}
+                <Link href={ blogsPath()}>
+                  Read the blog
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="https://github.com/your-github" target="_blank" rel="noopener noreferrer">
-                  View Portfolio
+                <Link href="https://books.sixlighthouses.com" target="_blank" rel="noopener noreferrer">
+                  View documentation
                 </Link>
               </Button>
             </div>

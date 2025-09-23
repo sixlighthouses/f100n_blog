@@ -36,7 +36,7 @@ export default function About() {
             )}
           </nav>
         </header>
-        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-6">
+        <div className="mx-auto flex w-full max-w-5xl justify-between px-4 py-6">
           <h1 className="mb-4 text-2xl font-bold">About Devops Quest</h1>
           <p className="mb-4">
             Devops Quest is a blog and portfolio documenting my journey to learn
