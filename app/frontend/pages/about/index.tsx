@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { dashboardPath, signInPath } from "@/routes"
 import type { SharedData } from "@/types"
 
-
 export default function About() {
   const page = usePage<SharedData>()
   const { auth } = page.props
