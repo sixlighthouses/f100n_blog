@@ -4,4 +4,4 @@ export interface BlogType {
   body: string
 }
 
-export type BlogFormType = Omit<BlogType, 'id'>
+export type BlogFormType = Omit<BlogType, "id">

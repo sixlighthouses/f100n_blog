@@ -1,8 +1,8 @@
-import { Head, Link } from '@inertiajs/react'
-import { Fragment } from 'react'
+import { Head, Link } from "@inertiajs/react"
+import { Fragment } from "react"
 
-import Blog from './Blog'
-import type { BlogType } from './types'
+import Blog from "./Blog"
+import type { BlogType } from "./types"
 
 interface IndexProps {
   blogs: BlogType[]
@@ -13,17 +13,17 @@ export default function Index({ blogs, flash }: IndexProps) {
   return (
     <>
       <Head title="Blogs" />
-      <div className="mx-auto md:w-2/3 w-full px-8 pt-8">
+      <div className="mx-auto w-full px-8 pt-8 md:w-2/3">
         {flash.notice && (
-          <p className="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block">
+          <p className="mb-5 inline-block rounded-lg bg-green-50 px-3 py-2 font-medium text-green-500">
             {flash.notice}
           </p>
         )}
-        <div className="flex justify-between items-center">
-          <h1 className="font-bold text-4xl">Blogs</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-4xl font-bold">Blogs</h1>
           <Link
             href="/blogs/new"
-            className="rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium"
+            className="block rounded-lg bg-blue-600 px-5 py-3 font-medium text-white"
           >
             New blog
           </Link>
@@ -36,7 +36,7 @@ export default function Index({ blogs, flash }: IndexProps) {
               <p>
                 <Link
                   href={`/blogs/${blog.id}`}
-                  className="ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+                  className="ml-2 inline-block rounded-lg bg-gray-100 px-5 py-3 font-medium"
                 >
                   Show this blog
                 </Link>
