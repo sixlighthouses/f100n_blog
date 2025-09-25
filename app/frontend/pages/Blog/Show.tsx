@@ -1,6 +1,7 @@
 import { Head, Link } from "@inertiajs/react"
+
 import Blog from "./Blog"
-import { BlogType } from "./types"
+import type { BlogType } from "./types"
 
 interface ShowProps {
   blog: BlogType

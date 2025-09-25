@@ -6,6 +6,7 @@ import "trix" // Import Trix CSS and JS
 import "trix/dist/trix.css"
 
 // Temporary fix for InertiaFormProps not being exported from @inertiajs/react
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type InertiaFormProps<TForm extends Record<string, any>> = ReturnType<
   typeof useForm<TForm>
 >

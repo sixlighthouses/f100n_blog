@@ -1,15 +1,9 @@
-import { Head, Link, usePage } from "@inertiajs/react"
+import { Link, usePage } from "@inertiajs/react"
 
 import { Button } from "@/components/ui/button"
-import { aboutPath, dashboardPath, signInPath } from "@/routes"
-import type { BreadcrumbItem, SharedData } from "@/types"
+import { dashboardPath, signInPath } from "@/routes"
+import type { SharedData } from "@/types"
 
-const breadcrumbs: BreadcrumbItem[] = [
-  {
-    title: "About",
-    href: aboutPath(),
-  },
-]
 
 export default function About() {
   const page = usePage<SharedData>()

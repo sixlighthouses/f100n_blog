@@ -1,4 +1,4 @@
-import { BlogType } from "./types"
+import type { BlogType } from "./types"
 
 interface BlogProps {
   blog: BlogType

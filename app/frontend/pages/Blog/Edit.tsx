@@ -1,6 +1,7 @@
 import { Head, Link } from "@inertiajs/react"
+
 import Form from "./Form"
-import { BlogType } from "./types"
+import type { BlogType } from "./types"
 
 interface EditProps {
   blog: BlogType
