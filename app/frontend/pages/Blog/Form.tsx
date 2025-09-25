@@ -1,6 +1,7 @@
 import { useForm } from '@inertiajs/react'
-import { FormEvent } from 'react'
-import { BlogFormType, BlogType } from './types'
+import type { FormEvent } from 'react'
+
+import type { BlogFormType, BlogType } from './types'
 import 'trix'; // Import Trix CSS and JS
 import 'trix/dist/trix.css';
 

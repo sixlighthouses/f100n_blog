@@ -42,6 +42,7 @@
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-trix": "^0.10.2",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.2.0",
     "tailwindcss": "^4.0.6",
