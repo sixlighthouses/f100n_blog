@@ -2,6 +2,10 @@
 
 require "rails_helper"
 
+RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+end
+
 RSpec.describe UserMailer, type: :mailer do
   describe "password_reset" do
     subject(:mail) { UserMailer.with(user:).password_reset }
